@@ -7,4 +7,12 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
+  #
+
+  Rails.application.routes.draw do
+    resources :documents, only: [:create, :show] do
+      post :signature, on: :member
+    end
+  end
+
 end

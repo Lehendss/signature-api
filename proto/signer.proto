@@ -1,0 +1,18 @@
+syntax = "proto3";
+package signer;
+
+option go_package = "github.com/Lehendss/signature-signer/proto;signer";
+
+service Signer {
+  rpc SignPdf(SignRequest) returns (SignReply);
+}
+
+message SignRequest {
+  string s3_url     = 1;
+  string output_key = 2;
+}
+message SignReply {
+  bool   success    = 1;
+  string signed_url = 2;
+  string error      = 3;
+}

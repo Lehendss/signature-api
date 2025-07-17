@@ -1,0 +1,17 @@
+syntax = "proto3";
+package signer;
+
+message SignRequest {
+  string s3_url    = 1;
+  string output_key = 2;
+}
+
+message SignResponse {
+  bool   success    = 1;
+  string signed_url = 2;
+  string error      = 3;
+}
+
+service Signer {
+  rpc SignPdf(SignRequest) returns (SignResponse);
+}
